@@ -1,2 +1,2 @@
 # thread1
-first exercises along java thread
+first exercises about java thread
