@@ -8,6 +8,7 @@ public class Thread1 {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        
         /* T t = new T('a');
          t.start();
          T t2 = new T('b');
@@ -26,11 +27,10 @@ public class Thread1 {
          RS r2 = new RS("thread222", cont);
          */
 
-        float soldi;
         boolean exit = true;
         System.out.println("Con quanto saldo desidera iniziare? ");
-        float saldoIniziale = input.nextFloat();
-        ContoCorrente c1 = new ContoCorrente(saldoIniziale);
+        ContoCorrente conto = new ContoCorrente(input.nextFloat());
+        ThreadBanca T = new ThreadBanca("cliente1" , conto );
         int answere;
         do {
             System.out.println("\n 1 - preleva\n 2 - deposita\n 3 - esci ");
@@ -38,16 +38,14 @@ public class Thread1 {
             switch (answere) {
                 case 1:
                     System.out.println("Quanto desidera prelevare? ");
-                    soldi = input.nextFloat();
-                    c1.prelievo(soldi);
-                    System.out.println("Nuovo saldo = " + c1.getSaldo());
+                    conto.prelievo(input.nextFloat());
+                    System.out.println("Nuovo saldo = " + conto.getSaldo());
                     break;
 
                 case 2:
                     System.out.println("Quanto desidera depositare? ");
-                    soldi = input.nextFloat();
-                    c1.deposito(soldi);
-                    System.out.println("Nuovo saldo = " + c1.getSaldo());
+                    conto.deposito(input.nextFloat());
+                    System.out.println("Nuovo saldo = " + conto.getSaldo());
                     break;
                     
                 case 3:
